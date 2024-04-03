@@ -1,0 +1,188 @@
+<?php
+session_start();
+?>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freshmart</title>
+
+    <link rel="stylesheet" href="resources/css/style_index.css">
+    <link rel="stylesheet" href="resources/css/queries.css">
+    <link rel="stylesheet" href="vendors/css/normalize.css">
+    <link rel="stylesheet" href="vendors/css/ionicons.min.css">    
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="vendors/css/grid.css">
+    <style>
+        header{
+            height: 70%;
+            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url("resources/css/img/bgpages.jpg");
+
+        }
+        ;.hero-text-box{
+            align-items: center;
+        }
+        h1{
+            font-weight: 400;
+            font-size: 300%;
+        }
+     
+        label{
+            margin-top: 10px;
+            font-weight: 400;
+        }
+        input[type=submit] {
+            background-color: #2980b9;
+            color: #fff;
+            border: 1px solid #2980b9;
+            margin-right: 15px;
+
+        }
+        input,select,textarea{
+            margin-top:10px;
+        }
+        input[type=submit]:hover,
+        input[type=submit]:active{
+            background-color: #1d5a82;
+            border: 1px solid #1d5a82;
+
+        }
+        .error{
+            color:red;
+        }
+        .rating {
+      overflow: hidden;
+      display: inline-block;
+  }
+  .rating-input {
+      float: right;
+      width: 16px;
+      height: 16px;
+      padding: 0;
+      margin: 0 0 0 -16px;
+      opacity: 0;
+  }
+
+.rating:hover .rating-star:hover,
+  .rating:hover .rating-star:hover ~ .rating-star,
+  .rating-input:checked ~ .rating-star {
+      background-position: 0 0;
+  }
+
+   .rating-star,
+  .rating:hover .rating-star {
+    position: relative;
+      display: block;
+    float: right;
+      width: 16px;
+      height: 16px;
+      background: url('https://www.everythingfrontend.com/samples/star-rating/star.png') 0 -16px;
+  }
+
+  img{
+      border-radius:50%;
+      margin-bottom:5%;
+      margin-right:5%;
+  }
+  td{
+      width:33.3%;
+  }
+  .rounded-circle:after {
+    content: '\A';
+    position: absolute;
+    width: 100%; height:100%;
+    top:0; left:0;
+    background:rgba(0,0,0,0.6);
+    opacity: 0;
+    transition: all 1s;
+    -webkit-transition: all 1s;
+}
+    
+    </style>
+
+  
+</head>
+<body>
+      
+    
+
+    <!-- HEADER AND NAVBAR -->
+    <header>
+
+    <nav>
+            <div class="row">
+                <a href="index.php"><img src="resources/img/logo-white.png" alt="Omnifood Logo" class="logo"></a>
+                <a href="index.php"><img src="resources/img/logo-black.png" alt="Omnifood logo" class="logo-black"></a>
+                <ul class="main-nav">
+                    <li><a href="index.php">Home</a></li>
+                    <li><a href="aboutUs.php">About Us</a></li>
+                    <li><a href="categ.php">Categories</a></li>
+                   <?php
+                        if(count($_SESSION)>0)
+                        {
+                            ?>
+                            <li><a href="mycart.php"><i class="ion-ios-cart-outline icon-small" style="color: #fff;"></i>My Cart</a></li>
+                            
+                            <li><a href="logout.php">Logout</a></li>
+                            <li><a href="myProfile.php"><i class="ion-ios-person-outline icon-small" style="color: #fff;"></i><?php echo $_SESSION["username"];?></a></li>
+                            
+                            <?php
+                        }
+                        else
+                        {
+                   ?>
+                    <li><a href="login_sess.php">Login</a></li>
+                    <li><a href="signup.php">Sign Up</a></li>
+                    <?php
+                        }
+                    ?>
+                 
+
+
+                </ul>
+            </div>
+        </nav>
+        <div class="hero-text-box">
+
+        <h1>About Us</h1>
+        </div>
+    </header>
+
+   
+    <!-- ABOUT section -->
+    <h2 style='margin-top:2%;'><br>The perfect place for Grocery Shopping</h2>
+    <p class="long-copy">
+    Hello There!<br>
+    Welcome to Freshmart. Freshmart was established in the year 2024     and we ensure that our customers get the freshest products at the best price available, hence the name. 
+    Our aim is to redefine the freshest and finest food experience for our customers. Freshmart is different from the others as customers can view the various prices a product
+    is sold at by different wholesalers. You can instantly see which wholesalers have your favourite products and choose one that suits you the best. Thereby, we connect 
+    wholesalers directly to customers without the involvement of middlemen. We proudly claim that Freshmart
+    maintains maximum transparency with its customers. <br>Happy Shopping!<br>
+    <br>
+    Regards<br>
+    Team Freshmart
+    </p>
+   <br>
+   <br>
+   <br>
+   <?php
+   include 'C:\xampp\htdocs\freshmart\footer.php';
+   ?>
+ 
+
+<!-- Js plugins -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/selectivizr/1.0.2/selectivizr-min.js"></script>
+<script src="vendors/js/jquery.waypoints.min.js"></script>
+<script src="resources/Js/script.js"></script>
+
+
+
+</body>
+
+</html>
+
